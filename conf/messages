@@ -3,9 +3,17 @@
 #
 crud.users.list.title = Manage Staff
 crud.users.add = Add Staff &raquo;
-crud.users.show.title = EMS - Manage - Staff
-crud.users.show.title = Edit Staff
-crud.users.delete = Delete Staff
+crud.users.show.title = Manage - Staff
+crud.users.show.title = Edit - Staff
+crud.users.delete = Delete - Staff
+crud.users.blank.title = Add - Staff
+crud.dutys.blank.title = Add - Duty
+crud.dutys.list.title = Manage - Duties
+crud.dutys.show.title = Add - Duty
+crud.dutys.add = Add Duty &raquo;
+crud.dutys.blank.title = Add Duty
+crud.qualifications.blank.title = Manage - Qualifications
+crud.qualifications.add = Add Qualification &raquo;
 
 email=Email&nbsp;&nbsp;:&nbsp;&nbsp;
 password=Password&nbsp;&nbsp;:&nbsp;&nbsp;
@@ -14,3 +22,4 @@ lastName=Last Name&nbsp;&nbsp;:&nbsp;&nbsp;
 dob=DOB&nbsp;&nbsp;:&nbsp;&nbsp;
 isAdmin=Admin&nbsp;&nbsp;:&nbsp;&nbsp;
 duties=Duties&nbsp;&nbsp;:&nbsp;&nbsp;
+name=Name&nbsp;&nbsp;:&nbsp;&nbsp;
