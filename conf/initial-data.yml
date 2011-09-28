@@ -1,3 +1,5 @@
+DutyCategory(teaching):
+	
 Duty(teaching):
     name:           Teaching
 Duty(research):

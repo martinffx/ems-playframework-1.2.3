@@ -9,12 +9,13 @@
     <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/prettify.css'}">
     #{get 'moreStyles' /}
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.ico'}">
-   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js">
+   <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js">
     <script>
     	if(jQuery = 'undefined'){
     		document.write(unescape("%3Cscript src="@{'/public/javascripts/jquery-1.6.2.min.js'}" type="text/javascript" charset="${_response_encoding}"%3E%3C/script%3E"));
     	}
-    </script>
+    </script>-->
+<script type="text/javascript" src="../../public/javascripts/jquery.min.j../../public/javascripts/jquery.min.js"/>
     <script type="text/javascript" src="@{'/public/javascripts/prettify.js'}"></script>
     <script type="text/javascript" src="@{'/public/javascripts/application.js'}"></script>
   	</head>
