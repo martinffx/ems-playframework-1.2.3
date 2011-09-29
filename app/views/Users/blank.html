@@ -7,7 +7,13 @@
 
     <div class="objectForm">
     #{form action:@create(), enctype:'multipart/form-data'}
-        #{crud.form /}
+        #{crud.form}
+    #{crud.custom 'duties'}
+    #{/crud.custom}
+    #{/crud.form}
+<p>
+  Press <em>"Save and continue editing"</em> to save the staff member and the start assigning dutys to them.
+</p>
         <p class="crudButtons">
             <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
             <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
