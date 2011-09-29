@@ -12,9 +12,6 @@ public class Duty extends Model {
     @Required
     public String name;
 
-    @ManyToOne
-	public DutyCategory Category;
-	  
     public Duty(String name) {
         this.name = name;
     }

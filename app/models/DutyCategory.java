@@ -1,22 +1,23 @@
 package models;
 
 import java.util.*;
-import java.persistence.*;
-
+import javax.persistence.*;
+ 
 import play.db.jpa.*;
 import play.data.validation.*;
-
+ 
 @Entity
 public class DutyCategory extends Model {
 
     @Required
-	public String name;
-
+    public String name;
+ 
     public DutyCategory(String name) {
-	this.name = name;
+        this.name = name;
     }
 
-    public String toString(){
-	return name;
+    public String toString() {
+        return name;
     }
+ 
 }
