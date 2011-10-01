@@ -15,41 +15,21 @@
     #{form action:@save(object._key()), enctype:'multipart/form-data'}
         #{crud.form}
 		    #{crud.custom 'duties'}
-		        <label for="duties">
-		            &{'duties'}
-		        </label>
-		        <style type="text/css">
-			        .duties-list .duty {
-			            cursor: pointer;
-			            padding: 1px 4px;
-			        }
-			        .duties-list .selected {
-			            background: #222;
-			            color: #fff;
-			        }
-			    </style>
-			    <script type="text/javascript">
-			        var toggle = function(dutyEl) {
-			            var input = document.getElementById('h'+dutyEl.id);
-			            if(dutyEl.className.indexOf('selected') > -1) {
-			                dutyEl.className = 'tag';
-			                input.value = '';
-			            } else {
-			                dutyEl.className = 'tag selected';
-			                input.value = dutyEl.id;
-			            }
-			        }
-			    </script>
-			    <div class="duties-list">
-			        #{list items:models.Duty.findAll(), as:'duty'}
-			           <span id="${duty.id}" onclick="toggle(this)" 
-			                class="duty ${object.duties.contains(duty) ? 'selected' : ''}">
-			               ${duty}
-			           </span> 
-			           <input id="h${duty.id}" type="hidden" name="${fieldName}" 
-			                    value="${object.duties.contains(duty) ? duty.id : ''}" />
-			        #{/list}
-			    </div>
+	        <label for="duties">
+	            &{'duties'}
+	        </label>
+	        <ul class="tabs" data-tabs="tabs" >
+            #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+		           <li class="${dutyCategory_isFirst ?'':'active' }"><a href="#${dutyCategory}">${dutyCategory}</a></li>
+		        #{/list}
+          </ul>
+	        <div id="my-tab-content" class="tab-content">
+	          #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+	            <div class="${dutyCategory_isFirst ?'':'active' }" id="${dutyCategory.Name}">
+	              ${dutyCategory.Name}
+              </div>
+            #{/list}
+          </div>
 			    <div style="clear:both;"></div>
 		    #{/crud.custom}
 		#{/crud.form}
@@ -60,3 +40,10 @@
     #{/form}
     </div>
 </div>
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+  $.ready(function(){
+    $("")
+  })
+// ]]>
+</script>

@@ -11,7 +11,7 @@ public class DutyCategory extends Model {
 
     @Required
     public String name;
- 
+    
     public DutyCategory(String name) {
         this.name = name;
     }
