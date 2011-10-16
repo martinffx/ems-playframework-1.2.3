@@ -27,5 +27,4 @@ public class DutyCategory extends Model {
         DutyCategory dutyCategory = DutyCategory.findById(id);
         return dutyCategory.dutys;
     }
- 
 }

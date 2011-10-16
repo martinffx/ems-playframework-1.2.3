@@ -36,3 +36,9 @@ span.crudHelp{
 	font-style: italic;
 	font-size: 12px;
 }
+
+/* staff edit */
+ul.unstyled li
+{
+	margin: 0 0 3px 10px;
+}

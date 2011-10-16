@@ -27,10 +27,9 @@
 	          <div id="my-tab-content" class="tab-content">
 	            #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
 	              <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.name}">
-	              hello
-	                <ul>
-                    #{list items:dutyCategory.dutys, as:'duty'}
-                      <li><input type="checkbox" name="${duty.name}" />${duty.name}test</li>
+	                <ul class="unstyled">
+                    #{list items:models.Duty.getByCategory(dutyCategory.name), as:'duty'}
+                      <li><input type="checkbox" name="duty.${dutyCategory}" value="${duty.name}" />&nbsp;${duty.name}</li>
 	                  #{/list} 
 	                </ul>
                 </div>
