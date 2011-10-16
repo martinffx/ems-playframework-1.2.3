@@ -9,13 +9,13 @@
     <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/prettify.css'}">
     #{get 'moreStyles' /}
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.ico'}">
-   <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js">
+   <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js">
     <script>
     	if(jQuery = 'undefined'){
     		document.write(unescape("%3Cscript src="@{'/public/javascripts/jquery-1.6.2.min.js'}" type="text/javascript" charset="${_response_encoding}"%3E%3C/script%3E"));
     	}
     </script>-->
-    #{script src:'jquery-1.6.2.min.js', charset:'utf-8' /}
+    <script type="text/javascript" src="@{'/public/javascripts/jquery-1.6.2.min.js'}"></script>
     <script type="text/javascript" src="@{'/public/javascripts/prettify.js'}"></script>
     <script type="text/javascript" src="@{'/public/javascripts/application.js'}"></script>
   	</head>
@@ -25,27 +25,22 @@
 		      	<div class="container">
 		        	<h3><a href="/">Effort Management System</a></h3>
 		        	<ul class="nav">
-		          	<li><a href="/administration">Administration</a></li>
-		          	<li><a href="/research">Research</a></li>
-		          	<li><a href="/teaching">Teaching</a></li>
-		          	#{secure.check 'admin'}
-		          		<li><a href="/reports">Reports</a></li>
-		          	#{/secure.check}
-		        	</ul>
 		        	#{secure.check 'admin'}
-			        	<ul class="nav secondary-nav">
+		          	<li><a href="/admin/reports">Reports</a></li>
+		          	<ul class="nav secondary-nav">
 			            <li class="dropdown">
-			              <a href="#" class="dropdown-toggle">Manage</a>
+			              <a href="#" class="dropdown-toggle">Users</a>
 			              <ul class="dropdown-menu">
+			                <li><a href="@{Users.listAdmin()}">Admin</a></li>
+			                <li class="divider"></li>
 			                <li><a href="@{Users.list()}">Staff</a></li>
-			                <li class="divider"></li>
-			                <li><a href="@{Dutys.list()}">Duties</a></li>
-			                <li class="divider"></li>
-			                <li><a href="@{Qualifications.list()}">Qualifications</a></li>
 			              </ul>
 			            </li>
 			          </ul>
-			          #{/secure.check}
+		          	<li><a href="/admin/duties">Duties</a></li>
+		          	<li><a href="/admin/qualifications">Qualifications</a></li>
+		          	#{/secure.check}
+		        	</ul>
 	        		<span class="logout"><a href="@{Secure.logout()}">Logout</a></span>
 		      	</div>
 	    	</div>
