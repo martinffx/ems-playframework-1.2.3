@@ -18,28 +18,36 @@
 	        <label for="duties">
 	            &{'duties'}
 	        </label>
-	        <ul class="tabs" data-tabs="tabs" >
-            #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
-		           <li class="${dutyCategory_isFirst ?'':'active' }"><a href="#${dutyCategory}">${dutyCategory}</a></li>
-		        #{/list}
-          </ul>
-	        <div id="my-tab-content" class="tab-content">
-	          #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
-	            <div class="${dutyCategory_isFirst ?'':'active' }" id="${dutyCategory.Name}">
-	              ${dutyCategory.Name}
-              </div>
-            #{/list}
+	        <div style="margin-left:130px;width:500px;">
+	          <ul class="tabs" data-tabs="tabs" >
+              #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+		             <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.name}">${dutyCategory.name}</a></li>
+	          #{/list}
+            </ul>
+	          <div id="my-tab-content" class="tab-content">
+	            #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+	              <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.name}">
+	                <ul>
+                    #{list items:models.DutyCategory.getDutys(dutyCategory.id), as:'duty'}
+                      <li><input type="checkbox" name="${duty.name}" />${duty.name}test</li>
+	                  #{/list} 
+	                </ul>
+                </div>
+              #{/list}
+            </div>
           </div>
 			    <div style="clear:both;"></div>
 		    #{/crud.custom}
 		#{/crud.form}
-        <p class="crudButtons">
-            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
-            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
-        </p>
+		<div style="clear:both;"></div>
+    <p class="crudButtons">
+        <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+        <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+    </p>
     #{/form}
     </div>
 </div>
+#{script src:'bootstrap-tabs.js', charset:'utf-8' /}
 <script type="text/javascript" language="javascript" charset="utf-8">
 // <![CDATA[
   $.ready(function(){

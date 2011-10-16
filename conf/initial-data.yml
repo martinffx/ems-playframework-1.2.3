@@ -1,23 +1,119 @@
-Duty(teaching):
+DutyCategory(teaching):
     name:           Teaching
-Duty(research):
-    name:           Research
-Duty(administration):
+DutyCategory(admin):
     name:           Administration
-
+DutyCategory(research):
+    name:           Research
+    
+Duty(d1):
+    name:           Knowledge Management
+    category:       
+                    - teaching
+Duty(d2):
+    name:           Knowledge Management
+    category:       
+                    - research
+Duty(d3):
+    name:           Operating Systems
+    category:       
+                    - admin
+Duty(d3):
+    name:           Operating Systems
+    category:       
+                    - research
+Duty(d4):
+    name:           Operating Systems
+    category:       
+                    - teaching
+Duty(d5):
+    name:           Concurrency
+    category:       
+                    - admin 
+Duty(d6):
+    name:           Concurrency
+    category:       
+                    - research
+Duty(d7):
+    name:           Concurrency
+    category:       
+                    - teaching
+Duty(d8):
+    name:           Professional Development
+    category:       
+                    - teaching
+Duty(d9):
+    name:           Professional Development
+    category:       
+                    - admin
+Duty(d10):
+    name:           Professional Development
+    category:       
+                    - research
+Duty(d11):
+    name:           Software Engineering
+    category:       
+                    - teaching   
+Duty(d12):
+    name:           Software Engineering
+    category:       
+                    - admin   
+Duty(d13):
+    name:           Software Engineering
+    category:       
+                    - research   
+Duty(d14):
+    name:           Operations Management
+    category:       
+                    - admin   
+Duty(d15):
+    name:           Operations Management
+    category:       
+                    - teaching   
+Duty(d16):
+    name:           Operations Management
+    category:       
+                    - research   
+Duty(d17):
+    name:           Artificial Intelligence
+    category:       
+                    - teaching      
+Duty(d18):
+    name:           Artificial Intelligence
+    category:       
+                    - admin      
+Duty(d19):
+    name:           Artificial Intelligence
+    category:       
+                    - research      
+Duty(d20):
+    name:           Graphics
+    category:       
+                    - teaching      
+Duty(d21):
+    name:           Graphics
+    category:       
+                    - research      
+Duty(d22):
+    name:           Graphics
+    category:       
+                    - admin      
+                                                                                                                                                                                                                                                                                                                                                                                                              
 User(bob):
     email:          bob@gmail.com
     password:       secret
     firstName:       Bob
     isAdmin:        true
     duties:
-                    - administration
+                    - d1
+                    - d2
+                    - d3
     
 User(jeff):
     email:          jeff@gmail.com
     password:       secret
     firstName:       Jeff
     duties:
-                    - teaching
-                    - research
+                    - d4
+                    - d5
+                    - d6
     
