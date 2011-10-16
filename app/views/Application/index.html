@@ -2,28 +2,23 @@
 #{set title:'EMS - Dashboard' /}
 
 <section id="about">
-  <div class="page-header">
-    <h1>Dashboard</h1>
-  </div>
-  <div class="row">
-  	<div class="span-one-third columns">
-  		<h3>Administration</h3>
-  		<ul class="unstyled">
-  			<li><a href="/administration/capture">Capture Time</a></li>
-  			<li><a href="/administration/review">Review Time</a></li>
-			</ul>
-		</div>
-		<div class="span-one-third columns">
-  		<h3>Research</h3>
-  		<ul class="unstyled">
-  			<li><a href="/research/capture">Capture Time</a></li>
-  			<li><a href="/research/review">Review Time</a></li>
-			</ul>
-		</div>
-		<div class="span-one-third columns">
-  		<h3>Teaching</h3>
-  		<ul class="unstyled">
-  			<li><a href="/teaching/capture">Capture Time</a></li>
-  			<li><a href="/teaching/review">Review Time</a></li>
-			</ul>
-		</div>
+    <div class="page-header">
+        <h1>Dashboard</h1>
+    </div>
+    <div class="row">
+        <div class="span-one-third columns" style="text-align:center;">
+            <a href="@{CaptureAdministrationTimes.list()}" >
+                <button class="btn primary" style="width: 230px; height: 70px; font-size: 12pt;">Capture administration times</button>
+            </a>
+        </div>
+        <div class="span-one-third columns" style="text-align:center;">
+            <button class="btn primary" style="width: 230px; height: 70px; font-size: 12pt">Capture Research times</button>
+        </div>
+        <div class="span-one-third columns" style="text-align:center;">
+            <button class="btn primary" style="width: 230px; height: 70px; font-size: 12pt">Capture Teaching times</button>
+        </div>
+    </div>
+    <div class="row" style="text-align:center; ">
+        <image src="@{'/public/images/times.png'}" height="500px"/>
+    </div>
+</section>
