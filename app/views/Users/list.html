@@ -14,18 +14,18 @@
         <a href="@{blank()}">&{'crud.users.add', type.modelName}</a>
     </p>
     <div id="crudListTable">
-        #{crud.table fields:['Name', 'Email', 'Admin']}
-		 #{crud.custom 'Name'}
-		  <a href="@{Users.show(object.id)}">
-		   ${object.firstName + " " + object.lastName}
-		  </a>
-		 #{/crud.custom}
-		 #{crud.custom 'Email'}
-		   ${object.email}
-		 #{/crud.custom}
-		 #{crud.custom 'Admin'}
-		   ${object.isAdmin.yesno('yes', 'no')}
-		 #{/crud.custom}
+        #{crud.table fields:['Email', 'Name', 'Admin']}
+		     #{crud.custom 'Email'}
+		      <a href="@{Users.show(object.id)}">
+		       ${object.email}
+		      </a>
+		     #{/crud.custom}
+		     #{crud.custom 'Name'}
+		       ${object.firstName + " " + object.lastName}
+		     #{/crud.custom}
+		     #{crud.custom 'Admin'}
+		       ${object.isAdmin.yesno('yes', 'no')}
+		     #{/crud.custom}
 		#{/crud.table}
     </div>
 

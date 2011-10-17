@@ -12,46 +12,60 @@
     #{/form}
 	<div style="clear:both;"></div>
     <div class="objectForm">
+    #{ifErrors}
+       <h1>Oops…</h1>
+     
+       #{errors}
+           <li>${error}</li>
+       #{/errors}
+    #{/ifErrors}
     #{form action:@save(object._key()), enctype:'multipart/form-data'}
         #{crud.form}
+            #{if object.isAdmin}
+            #{/if}
+            #{else}
 		    #{crud.custom 'duties'}
-	        <label for="duties">
-	            &{'duties'}
-	        </label>
-	        <div style="margin-left:130px;width:500px;">
-	          <ul class="tabs" data-tabs="tabs" >
-              #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
-		             <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.name}">${dutyCategory.name}</a></li>
-	          #{/list}
-            </ul>
-	          <div id="my-tab-content" class="tab-content">
-	            #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
-	              <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.name}">
-	                <ul class="unstyled">
-                    #{list items:models.Duty.getByCategory(dutyCategory.name), as:'duty'}
-                      <li>
-                        #{if object.duties.contains(duty)}
-                            <input type="checkbox" name="duty.${dutyCategory}" 
-                                value="${duty.name}" checked="true" />
-                               &nbsp;${duty.name}
-                        
-                        #{/if}
-                        #{else}
-                        <input type="checkbox" name="duty.${dutyCategory}" 
-                                value="${duty.name}" />
-                                &nbsp;${duty.name}
-                        #{/else}
-                        </li>
-	                  #{/list} 
-	                </ul>
+	            <label for="duties">
+	                &{'duties'}
+	            </label>
+	            <div style="margin-left:130px;width:500px;">
+	              <ul class="tabs" data-tabs="tabs" >
+                  #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+		                 <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.name}">${dutyCategory.name}</a></li>
+	              #{/list}
+                </ul>
+	              <div id="my-tab-content" class="tab-content">
+	                #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+	                  <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.name}">
+	                    <ul class="unstyled">
+                        #{list items:models.Duty.getByCategory(dutyCategory.name), as:'duty'}
+                          <li>
+                            #{if object.duties.contains(duty)}
+                              <label>
+                                <input type="checkbox" name="duty.${dutyCategory}" 
+                                    value="${duty.name}" checked="true" />
+                                 <span>&nbsp;${duty.name}</span>
+                               </label>
+                            #{/if}
+                            #{else}
+                              <label>
+                                <input type="checkbox" name="duty.${dutyCategory}" 
+                                    value="${duty.name}" />
+                                <span>&nbsp;${duty.name}</span>
+                              </label>
+                            #{/else}
+                            </li>
+	                      #{/list} 
+	                    </ul>
+                    </div>
+                  #{/list}
                 </div>
-              #{/list}
-            </div>
-          </div>
-			    <div style="clear:both;"></div>
+              </div>
+		    <div style="clear:both;"></div>
 		    #{/crud.custom}
-		#{/crud.form}
-		<div style="clear:both;"></div>
+	    #{/else}
+    #{/crud.form}
+    <div style="clear:both;"></div>
     <p class="crudButtons">
         <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
         <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />

@@ -16,41 +16,60 @@ public class Users extends CRUD {
 	    render(users);
 	}
 	
-	public static void list(){
-	    List<User> users = User.listUsers();
-	    render(users);
-	}
-	
+//	public static void list(){
+//	    List<User> users = User.listUsers();
+//	    render(users);
+//	}
+//	
 //	public static void show(Long id) {
 //        User user = User.findById(id);
 //        System.out.println(user.toString());
 //        //render(user);
 //    }
 	
-	public static void save(
-	    Long id,
-	    @Required(message="Email address is required.") @Email(message="Valid email address required.") String email, 
-        @Required(message="A password is required") String password, 
-        String firstName,
-        String lastName,
-        Date dob,
-        boolean isAdmin){
+	public static void save(Long id){
+	    //Get parameters from form
+	    String email = params.get("object.email");
+	    String password = params.get("object.password");
+	    String firstName = params.get("object.firstName");
+	    String lastName = params.get("object.lastName");
+	    String strIsAdmin = params.get("object.isAdmin");
+	    boolean isAdmin = Boolean.parseBoolean(strIsAdmin);
+	    String save = params.get("_save");
+	    String saveEdit = params.get("_saveAndContinue");
+	    
+	    Map<String, String[]> Param = params.all();
+	    System.out.println(save);
+	    System.out.println(saveEdit);
+	    System.out.println(password);
+	    System.out.println(strIsAdmin);
         
-        User user = User.findById(id);
+        //Validate data
+//        validation.required(email);
+//        validation.email(email);
+//        validation.required(password);
         
+        //Fetch user
+        User object = User.findById(id);
+        
+        //Handle validation errors
         if(validation.hasErrors()){
-            render("Users/show.html", user);
+            System.out.println("Danger!! High Voltage!");
+            params.flash();
+            validation.keep();
+            redirect("/admin/staff/" + id);
         }
         
         //Add basic staff info
-	    user.email = email;
-	    user.password = password;
-	    user.firstName = firstName;
-	    user.lastName = lastName;
-	    user.isAdmin = isAdmin;
+	    object.email = email;
+	    object.password = password;
+	    object.firstName = firstName;
+	    object.lastName = lastName;
+	    object.isAdmin = isAdmin;
 	    
 	    //Get selected duties to user
-	    Set<Duty> duties = user.duties;
+	    Set<Duty> duties = object.duties;
+	    System.out.println(duties.size());
 	    List<DutyCategory> dutyCategories = DutyCategory.all().fetch();
 	    for(DutyCategory dc : dutyCategories){
 	        //Find all the duties selected for that category
@@ -64,13 +83,24 @@ public class Users extends CRUD {
 	        }
 	    }
 	    
+	    System.out.println(duties.size());
 	    //Add duties to user
-	    user.duties = duties;
+	    object.duties = duties;
 	    
 	    //Save new details
-	    user.save();
+	    object.save();
 	    
 	    //render updated page
-	    render("Users/show.html", user);
+	    if(isAdmin){
+	        if (params.get("_save") != null) {
+                redirect("/admin/user");
+            }
+	        redirect("/admin/user/" + id);
+	    }
+	    
+	    if (params.get("_save") != null) {
+            redirect("/admin/staff");
+        }
+	    redirect("/admin/staff/" + id);
 	}
 }
