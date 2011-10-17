@@ -38,7 +38,12 @@ public class Duty extends Model {
         List<Duty> result = Duty.find("select d from User u join u.duties d where u = " + id).fetch();
         return result;
     }
-
+    
+    public static boolean userHasDuty(Long id, String name, String category){
+        List<Duty> duties = getForUser(id);
+        Duty duty = Duty.findByNameAndCategory(name, category);
+        return duties.contains(duty);
+    }
     public String toString() {
         return name;
     }

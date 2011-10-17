@@ -45,7 +45,17 @@ public class User extends Model {
     public static User connect(String email, String password) {
         return find("byEmailAndPassword", email, password).first();
     }
-
+    
+    public static List<User> listAdminUsers(){
+        List<User> users = User.find("select u from User u where u.isAdmin = true").fetch();
+        return users;
+    }
+    
+    public static List<User> listUsers(){
+        List<User> users = User.find("select u from User u where u.isAdmin = false").fetch();
+        return users;
+    }
+    
     public String toString() {
         return firstName + " " + lastName;
     }

@@ -29,7 +29,19 @@
 	              <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.name}">
 	                <ul class="unstyled">
                     #{list items:models.Duty.getByCategory(dutyCategory.name), as:'duty'}
-                      <li><input type="checkbox" name="duty.${dutyCategory}" value="${duty.name}" />&nbsp;${duty.name}</li>
+                      <li>
+                        #{if object.duties.contains(duty)}
+                            <input type="checkbox" name="duty.${dutyCategory}" 
+                                value="${duty.name}" checked="true" />
+                               &nbsp;${duty.name}
+                        
+                        #{/if}
+                        #{else}
+                        <input type="checkbox" name="duty.${dutyCategory}" 
+                                value="${duty.name}" />
+                                &nbsp;${duty.name}
+                        #{/else}
+                        </li>
 	                  #{/list} 
 	                </ul>
                 </div>
