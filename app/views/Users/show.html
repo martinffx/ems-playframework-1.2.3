@@ -1,69 +1,65 @@
 #{extends 'main.html' /}
-#{set title:messages.get('crud.users.show.title', type.modelName) /}
+#{set title:messages.get('crud.users.staff.show.title', type.modelName) /}
 
 <div id="crudShow" class="${type.name}">
 	<div class="CrudTitle">
-    	<h2 id="crudShowTitle">&{'crud.users.show.title', type.modelName}</h2>
+    	<h2 id="crudShowTitle">&{'crud.users.staff.show.title', type.modelName}</h2>
     </div>	
     #{form @delete(object._key())}
         <p class="crudDelete">
-            <input type="submit" value="&{'crud.users.delete', type.modelName}" />
+            <input type="submit" value="&{'crud.users.staff.delete', type.modelName}" />
         </p>
     #{/form}
 	<div style="clear:both;"></div>
     <div class="objectForm">
-    #{ifErrors}
-       <h1>Oops…</h1>
-     
-       #{errors}
-           <li>${error}</li>
-       #{/errors}
-    #{/ifErrors}
     #{form action:@save(object._key()), enctype:'multipart/form-data'}
         #{crud.form}
-            #{if object.isAdmin}
-            #{/if}
-            #{else}
 		    #{crud.custom 'duties'}
-	            <label for="duties">
-	                &{'duties'}
-	            </label>
-	            <div style="margin-left:130px;width:500px;">
-	              <ul class="tabs" data-tabs="tabs" >
-                  #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
-		                 <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.name}">${dutyCategory.name}</a></li>
-	              #{/list}
-                </ul>
-	              <div id="my-tab-content" class="tab-content">
-	                #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
-	                  <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.name}">
-	                    <ul class="unstyled">
-                        #{list items:models.Duty.getByCategory(dutyCategory.name), as:'duty'}
-                          <li>
-                            #{if object.duties.contains(duty)}
-                              <label>
-                                <input type="checkbox" name="duty.${dutyCategory}" 
-                                    value="${duty.name}" checked="true" />
-                                 <span>&nbsp;${duty.name}</span>
-                               </label>
-                            #{/if}
-                            #{else}
-                              <label>
-                                <input type="checkbox" name="duty.${dutyCategory}" 
-                                    value="${duty.name}" />
-                                <span>&nbsp;${duty.name}</span>
-                              </label>
-                            #{/else}
-                            </li>
-	                      #{/list} 
-	                    </ul>
-                    </div>
-                  #{/list}
+            <label for="duties">
+                &{'duties'}
+            </label>
+            <div style="margin-left:130px;width:500px;">
+              <ul class="tabs" data-tabs="tabs" >
+              #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+	                 <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.name}">${dutyCategory.name}</a></li>
+              #{/list}
+            </ul>
+              <div id="my-tab-content" class="tab-content">
+                #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+                  <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.name}">
+                    <ul class="unstyled">
+                    #{list items:models.Duty.getByCategory(dutyCategory.name), as:'duty'}
+                      <li>
+                        #{if object.duties.contains(duty)}
+                          <label>
+                            <input type="checkbox" name="duty.${dutyCategory}" 
+                                value="${duty.name}" checked="true" />
+                             <span>&nbsp;${duty.name}</span>
+                           </label>
+                        #{/if}
+                        #{else}
+                          <label>
+                            <input type="checkbox" name="duty.${dutyCategory}" 
+                                value="${duty.name}" />
+                            <span>&nbsp;${duty.name}</span>
+                          </label>
+                        #{/else}
+                        </li>
+                      #{/list} 
+                    </ul>
                 </div>
-              </div>
-		    <div style="clear:both;"></div>
-		    #{/crud.custom}
-	    #{/else}
+              #{/list}
+            </div>
+          </div>
+          #{ifErrors}
+            <p>
+                #{errors}
+                   <li>${error}</li>
+                #{/errors}
+            </p>
+        #{/ifErrors}
+	    <div style="clear:both;"></div>
+	    #{/crud.custom}
     #{/crud.form}
     <div style="clear:both;"></div>
     <p class="crudButtons">

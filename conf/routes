@@ -14,9 +14,9 @@ GET     /public/                                staticDir:public
 # Administration
 GET     /admin/?                                Admin.index
 *       /admin/users                            Users.list()
-*       /admin/users/{id}                       Users.show()
-*       /admin/staff                            Users.list()
-*       /admin/staff/{id}                       Users.show()
+*       /admin/users/admin/new                  Users.blankAdmin()
+*       /admin/users/admin/{id}                 Users.showAdmin()
+*       /admin/users/staff/{id}                 Users.show()
 *       /admin                                  module:crud
 
 # Import Secure routes

@@ -34,12 +34,12 @@ public class User extends Model {
         this.password = password;
     }
     
-    public User(String email, String password, String firstName, String lastName, Date dob) {
+    public User(String email, String password, String firstName, String lastName, boolean isAdmin) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dob = dob;
+        this.isAdmin = isAdmin;
     }
     
     public static User connect(String email, String password) {

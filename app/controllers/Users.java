@@ -4,8 +4,13 @@ import play.*;
 import play.mvc.*;
 import play.data.*;
 import play.data.validation.*;
+
 import models.*;
+
 import java.util.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
 
 @Check("admin")
 @With(Secure.class)
@@ -16,38 +21,65 @@ public class Users extends CRUD {
 	    render(users);
 	}
 	
-//	public static void list(){
-//	    List<User> users = User.listUsers();
-//	    render(users);
-//	}
-//	
-//	public static void show(Long id) {
-//        User user = User.findById(id);
-//        System.out.println(user.toString());
-//        //render(user);
-//    }
+    public static void blankAdmin(){
+        render("Users/blankAdmin.html");
+    }
+    
+    public static void showAdmin(Long id){
+        User object = User.findById(id);
+        render("Users/showAdmin.html", object);
+    }
+    
+    public static void createAdmin(){
+        String email = params.get("object.email");
+	    String password = params.get("object.password");
+	    String firstName = params.get("object.firstName");
+	    String lastName = params.get("object.lastName");
+	    
+        validation.required(email);
+        validation.email(email);
+        validation.required(password);
+        
+        if(validation.hasErrors()){
+            params.flash();
+            validation.keep();
+            redirect("/admin/users/admin/new");
+        }
+        
+        User user = new User(email, password, firstName, lastName, true);
+        user.save();
+        
+        if (params.get("_save") != null) {
+            System.out.println("save");
+            redirect("/admin/users");
+        } else if (params.get("_saveAndContinue") != null) {
+            System.out.println("saveAndContinue");
+            redirect("/admin/users/admin/" + user.id);
+        }
+        System.out.println("saveAndAdd");
+        redirect("/admin/users/admin/new");
+    }
 	
 	public static void save(Long id){
+	    DateFormat df = DateFormat.getDateInstance();
 	    //Get parameters from form
 	    String email = params.get("object.email");
 	    String password = params.get("object.password");
 	    String firstName = params.get("object.firstName");
 	    String lastName = params.get("object.lastName");
-	    String strIsAdmin = params.get("object.isAdmin");
-	    boolean isAdmin = Boolean.parseBoolean(strIsAdmin);
-	    String save = params.get("_save");
-	    String saveEdit = params.get("_saveAndContinue");
 	    
-	    Map<String, String[]> Param = params.all();
-	    System.out.println(save);
-	    System.out.println(saveEdit);
-	    System.out.println(password);
-	    System.out.println(strIsAdmin);
-        
+	    Date dob = new Date();
+	    try{
+	       dob = df.parse(params.get("object.dob"));
+	    } catch(ParseException pe){
+	        System.out.println(pe.toString());
+	    }
+	    
+	    
         //Validate data
-//        validation.required(email);
-//        validation.email(email);
-//        validation.required(password);
+        validation.required(email);
+        validation.email(email);
+        validation.required(password);
         
         //Fetch user
         User object = User.findById(id);
@@ -57,7 +89,7 @@ public class Users extends CRUD {
             System.out.println("Danger!! High Voltage!");
             params.flash();
             validation.keep();
-            redirect("/admin/staff/" + id);
+            redirect("/admin/users/staff/" + id);
         }
         
         //Add basic staff info
@@ -65,7 +97,7 @@ public class Users extends CRUD {
 	    object.password = password;
 	    object.firstName = firstName;
 	    object.lastName = lastName;
-	    object.isAdmin = isAdmin;
+	    object.dob = dob;
 	    
 	    //Get selected duties to user
 	    Set<Duty> duties = object.duties;
@@ -91,16 +123,47 @@ public class Users extends CRUD {
 	    object.save();
 	    
 	    //render updated page
-	    if(isAdmin){
-	        if (params.get("_save") != null) {
-                redirect("/admin/user");
-            }
-	        redirect("/admin/user/" + id);
-	    }
+	    if (params.get("_save") != null) {
+            redirect("/admin/users");
+        }
+	    redirect("/admin/users/staff/" + id);
+	}
+	
+	public static void saveAdmin(Long id){
+	    //Get parameters from form
+	    String email = params.get("object.email");
+	    String password = params.get("object.password");
+	    String firstName = params.get("object.firstName");
+	    String lastName = params.get("object.lastName");
+	    
+	    //Validate data
+        validation.required(email);
+        validation.email(email);
+        validation.required(password);
+        
+        //Fetch user
+        User object = User.findById(id);
+        
+        //Handle validation errors
+        if(validation.hasErrors()){
+            System.out.println("Danger!! High Voltage!");
+            params.flash();
+            validation.keep();
+            redirect("/admin/users/staff/" + id);
+        }
+        
+        //Add basic staff info
+	    object.email = email;
+	    object.password = password;
+	    object.firstName = firstName;
+	    object.lastName = lastName;
+	    object.isAdmin = true;
+	    
+	    object.save();
 	    
 	    if (params.get("_save") != null) {
-            redirect("/admin/staff");
+            redirect("/admin/users");
         }
-	    redirect("/admin/staff/" + id);
+        redirect("/admin/users/admin/" + id);
 	}
 }

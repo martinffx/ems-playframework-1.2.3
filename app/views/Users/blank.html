@@ -1,19 +1,28 @@
 #{extends 'main.html' /}
-#{set title:messages.get('crud.users.blank.title', type.modelName) /}
+#{set title:messages.get('crud.users.staff.blank.title', type.modelName) /}
 
 <div id="crudBlank" class="${type.name}">
 
-    <h2 id="crudBlankTitle">&{'crud.users.blank.title', type.modelName}</h2>
+    <h2 id="crudBlankTitle">&{'crud.users.staff.blank.title', type.modelName}</h2>
 
     <div class="objectForm">
     #{form action:@create(), enctype:'multipart/form-data'}
         #{crud.form}
-    #{crud.custom 'duties'}
-    #{/crud.custom}
-    #{/crud.form}
-<p>
-  Press <em>"Save and continue editing"</em> to save the staff member and the start assigning dutys to them.
-</p>
+            #{crud.custom 'isAdmin'}
+            #{/crud.custom}
+            #{crud.custom 'duties'}
+            #{/crud.custom}
+        #{/crud.form}
+        #{ifErrors}
+            <p>
+                #{errors}
+                   <li>${error}</li>
+                #{/errors}
+            </p>
+        #{/ifErrors}
+        <p>
+            Press <em>"Save and continue editing"</em> to save the staff member and the start assigning dutys to them.
+        </p>
         <p class="crudButtons">
             <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
             <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />

@@ -1,5 +1,5 @@
 #{extends 'main.html' /}
-#{set title:messages.get('crud.users.show.title', type.modelName) /}
+#{set title:messages.get('crud.users.list.title', type.modelName) /}
 
 <div id="crudList" class="${type.name}">
 	
@@ -11,14 +11,23 @@
     </div>
 	<div style="clear:both;"></div>
 	<p id="crudListAdd" style="float: right;">
-        <a href="@{blank()}">&{'crud.users.add', type.modelName}</a>
+        <a href="@{blank()}">&{'crud.users.staff.add', type.modelName}</a>
+        <br/>
+        <a href="@{blankAdmin()}">&{'crud.users.admin.add', type.modelName}</a>
     </p>
     <div id="crudListTable">
-        #{crud.table fields:['Email', 'Name', 'Admin']}
-		     #{crud.custom 'Email'}
-		      <a href="@{Users.show(object.id)}">
-		       ${object.email}
-		      </a>
+      #{crud.table fields:['Email', 'Name', 'Admin']}
+		    #{crud.custom 'Email'}
+		      #{if object.isAdmin}
+		        <a href="@{Users.showAdmin(object.id)}">
+		          ${object.email}
+		        </a>
+	        #{/if}
+	        #{else}
+	          <a href="@{Users.show(object.id)}">
+		          ${object.email}
+		        </a>
+	        #{/else}
 		     #{/crud.custom}
 		     #{crud.custom 'Name'}
 		       ${object.firstName + " " + object.lastName}

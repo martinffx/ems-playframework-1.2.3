@@ -1,12 +1,17 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
-crud.users.list.title = Manage Staff
-crud.users.add = Add Staff &raquo;
-crud.users.show.title = Manage - Staff
-crud.users.show.title = Edit - Staff
-crud.users.delete = Delete - Staff
-crud.users.blank.title = Add - Staff
+crud.users.list.title = Manage Users
+crud.users.staff.add = Add Staff &raquo;
+crud.users.staff.show.title = Manage - Staff
+crud.users.staff.show.title = Edit - Staff
+crud.users.staff.delete = Delete - Staff
+crud.users.staff.blank.title = Add - Staff
+crud.users.admin.add = Add Admin &raquo;
+crud.users.admin.show.title = Manage - Admin
+crud.users.admin.show.title = Edit - Admin
+crud.users.admin.delete = Delete - Admin
+crud.users.admin.blank.title = Add - Admin
 crud.dutys.blank.title = Add - Duty
 crud.dutys.list.title = Manage - Duties
 crud.dutys.show.title = Add - Duty
