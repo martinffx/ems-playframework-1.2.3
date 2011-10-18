@@ -1,0 +1,53 @@
+#{extends 'main.html' /}
+#{set title:messages.get('crud.users.admin.show.title', type.modelName) /}
+
+<div id="crudShow" class="${type.name}">
+	<div class="CrudTitle">
+    	<h2 id="crudShowTitle">&{'crud.users.admin.show.title', type.modelName}</h2>
+    </div>	
+    #{form @delete(object._key())}
+        <p class="crudDelete">
+            <input type="submit" value="&{'crud.users.admin.delete', type.modelName}" />
+        </p>
+    #{/form}
+	<div style="clear:both;"></div>
+    <div class="objectForm">
+    #{ifErrors}
+       <h1>Oops…</h1>
+     
+       #{errors}
+           <li>${error}</li>
+       #{/errors}
+    #{/ifErrors}
+    #{form action:@saveAdmin(object._key()), enctype:'multipart/form-data'}
+        #{crud.form}
+            #{crud.custom 'dob'}
+		    #{/crud.custom}
+		    #{crud.custom 'isAdmin'}
+		    #{/crud.custom}
+		    #{crud.custom 'duties'}
+		    #{/crud.custom}
+        #{/crud.form}
+        #{ifErrors}
+            <p>
+                #{errors}
+                   <li>${error}</li>
+                #{/errors}
+            </p>
+        #{/ifErrors}
+        <div style="clear:both;"></div>
+        <p class="crudButtons">
+            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+        </p>
+        #{/form}
+    </div>
+</div>
+#{script src:'bootstrap-tabs.js', charset:'utf-8' /}
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+  $.ready(function(){
+    $("")
+  })
+// ]]>
+</script>
