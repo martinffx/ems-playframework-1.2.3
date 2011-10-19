@@ -10,18 +10,23 @@
     </div>
 	<div style="clear:both;"></div>
 	<p id="crudListAdd" style="float: right;">
-        <a href="@{blank()}">&{'crud.dutys.add', type.modelName}</a>
-    </p>
+      <a href="@{blank()}">&{'crud.dutys.add', type.modelName}</a>
+  </p>
+  <ul class="tabs" data-tabs="tabs" >
+    #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+         <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.name}">${dutyCategory.name}</a></li>
+    #{/list}
+  </ul>
     <div id="crudListTable">
-        #{crud.table fields:['Name']}
-		 #{crud.custom 'Name'}
-		  <a href="@{Dutys.show(object.id)}">
-		   ${object.name}
-		  </a>
-		 #{/crud.custom}
-		 #{crud.custom 'Category'}
-		   ${object.category}
-		 #{/crud.custom}
+      #{crud.table fields:['Name']}
+		    #{crud.custom 'Name'}
+		      <a href="@{Dutys.show(object.id)}">
+		        ${object.name}
+	        </a>
+     #{/crud.custom}
+      #{crud.custom 'Category'}
+		    ${object.category}
+	    #{/crud.custom}
 		#{/crud.table}
     </div>
     <div id="crudListPagination">
