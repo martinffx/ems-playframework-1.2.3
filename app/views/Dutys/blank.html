@@ -7,7 +7,23 @@
 
     <div class="objectForm">
     #{form action:@create(), enctype:'multipart/form-data'}
-        #{crud.form /}
+        #{crud.form}
+          #{crud.custom 'category'}
+            <label for="categories">
+                &{'category'}
+            </label>
+            <div style="margin-left:130px;width:500px;">
+              <option>
+                #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+                  #{if dutyCategory_isFirst}
+                    <select value="0" selected="true">-- Select Category --</option>
+                  #{/if}
+                  <select value="${dutyCategory.Id}">${dutyCategory.Name}</select>
+                #{/list}
+              </option>
+            </div>
+          #{/crud.custom}
+        #{/crud.form}
         <br/>
         <p class="crudButtons">
             <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
