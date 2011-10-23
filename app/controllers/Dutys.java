@@ -11,8 +11,7 @@ import java.util.*;
 @With(Secure.class)
 public class Dutys extends CRUD {
 
-    public static void list(String category){
-        List<Duty> object = Duty.getByCategory(category);
-        render(object);
+    public static void list(){
+        render();
     }
 }

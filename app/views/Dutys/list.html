@@ -5,9 +5,6 @@
 	<div class="CrudTitle">
     	<h2 id="crudListTitle">&{'crud.dutys.list.title', type.name}</h2>
 	</div>
-    <div id="crudListSearch">
-        #{crud.search /}
-    </div>
 	<div style="clear:both;"></div>
 	<p id="crudListAdd" style="float: right;">
       <a href="@{blank()}">&{'crud.dutys.add', type.modelName}</a>
@@ -17,20 +14,30 @@
          <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.name}">${dutyCategory.name}</a></li>
     #{/list}
   </ul>
-    <div id="crudListTable">
-      #{crud.table fields:['Name']}
-		    #{crud.custom 'Name'}
-		      <a href="@{Dutys.show(object.id)}">
-		        ${object.name}
-	        </a>
-     #{/crud.custom}
-      #{crud.custom 'Category'}
-		    ${object.category}
-	    #{/crud.custom}
-		#{/crud.table}
+    <div id="my-tab-content" class="tab-content">
+      #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+        <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.name}">
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th>
+                Duty</th>
+            </tr>
+            #{list items:models.Duty.getByCategory(dutyCategory.name), as:'duty'}
+              <tr>
+                <td>
+                  <a href="@{show(duty._key())}">${duty.name}</a></td>
+              </tr>
+            #{/list}
+          </table>
+        </div>
+      #{/list}
     </div>
-    <div id="crudListPagination">
-        #{crud.pagination /}
-    </div>
-
 </div>
+#{script src:'bootstrap-tabs.js', charset:'utf-8' /}
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+  $.ready(function(){
+    $("")
+  })
+// ]]>
+</script>

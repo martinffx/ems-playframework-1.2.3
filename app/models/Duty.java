@@ -14,22 +14,24 @@ public class Duty extends Model {
     
     @Required
     @ManyToOne
-    public DutyCategory category;
-
+    public DutyCategory Category;
+    
+    public Integer Students;
+    
     public Duty(String name, DutyCategory category) {
         this.name = name;
-        this.category = category;
+        this.Category = category;
     }
     
     public static List<Duty> getByCategory(String category){
         List<Duty> result = Duty.find("select distinct d from Duty d join " +
-            "d.category c where c.name = ? order by d.name", category).fetch();
+            "d.Category c where c.name = ? order by d.name", category).fetch();
         return result;
     }
     
     public static Duty findByNameAndCategory(String name, String category){
         List<Duty> result = Duty.find("select distinct d from Duty d join " +
-            "d.category c where d.name = '" + name + 
+            "d.Category c where d.name = '" + name + 
             "' and c.name = '" + category + "'").fetch();
         return result.get(0);
     }
