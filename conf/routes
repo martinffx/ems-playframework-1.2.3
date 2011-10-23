@@ -4,6 +4,8 @@
 
 # Home page
 GET     /                                       Application.home
+*       /user                                   Application.index
+*       /user/tmes/{category}                   Application.time
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

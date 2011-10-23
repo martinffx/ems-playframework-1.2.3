@@ -14,6 +14,11 @@ public class Application extends Controller {
         render();
     }
     
+    public static void time(String category){
+      List<Time> times = Time.listBycategoryAndUser(category);
+      render(times);
+    }
+    
     public static void home() {
     	if(Security.check("admin")){
 		    Admin.index();
