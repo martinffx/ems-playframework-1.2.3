@@ -18,6 +18,10 @@ public class Duty extends Model {
     
     public Integer Students;
     
+    public Integer Assistants;
+    
+    public Boolean Grants;
+    
     public Duty(String name, DutyCategory category) {
         this.name = name;
         this.Category = category;

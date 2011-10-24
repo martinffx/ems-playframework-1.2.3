@@ -2,24 +2,26 @@
 #{set title:'EMS - Dashboard' /}
 
 <section id="about">
-    <div class="page-header">
-        <h1>Dashboard</h1>
+  <div class="row">
+    <div class="span-one-third columns" style="text-align:center;">
+        <a href="@{Times.list('Administration')}" class="btn primary large"> 
+          Manage Administration Times</a> 
     </div>
-    <div class="row">
-        <div class="span-one-third columns" style="text-align:center;">
-            <a href="@{time('Administration')}" class="btn a href="@{time('Research')}"" style="width: 230px; height: 70px; font-size: 12pt;" >
-              Manage Administration Times</a> 
-        </div>
-        <div class="span-one-third columns" style="text-align:center;">
-            <a href="@{time('Research')}" class="btn primary" style="width: 230px; height: 70px; font-size: 12pt" >
-              Manage Research Times</a>
-        </div>
-        <div class="span-one-third columns" style="text-align:center;">
-            <a href="@{time('Teaching')}" class="btn primary" style="width: 230px; height: 70px; font-size: 12pt" >
-              Manage Teaching Times</a>
-        </div>
+    <div class="span-one-third columns" >
+        <a href="@{Times.list('Research')}" class="btn primary large" >
+          Manage Research Times</a>
     </div>
-    <div class="row" style="text-align:center; ">
-        <image src="@{'/public/images/times.png'}" height="500px"/>
+    <div class="span-one-third columns" >
+        <a href="@{Times.list('Teaching')}" class="btn primary large" >
+          Manage Teaching Times</a>
     </div>
+  </div>
+  <div class="clear25">
+  </div>
+  <div class="page-header">
+      <h1>Dashboard</h1>
+  </div>
+  <div class="row" style="text-align:center; ">
+      <image src="@{'/public/images/times.png'}" height="500px"/>
+  </div>
 </section>

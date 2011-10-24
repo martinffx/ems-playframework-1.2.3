@@ -2,10 +2,15 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
+# Staff
 GET     /                                       Application.home
 *       /user                                   Application.index
-*       /user/tmes/{category}                   Application.time
+*       /user/times/{category}/new              Times.blank
+*       /user/times/{category}                  Times.list
+
+# Reports
+GET     /reports/?                               Reports.index
+*       /reports/userlist/?                       Reports.userlist
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
@@ -23,7 +28,7 @@ GET     /admin/?                                Admin.index
 *       /admin                                  module:crud
 
 # Import Secure routes
-*      /                module:secure
+*      /                                        module:secure
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

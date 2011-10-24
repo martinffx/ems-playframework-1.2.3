@@ -101,7 +101,8 @@ Duty(d22):
 User(bob):
     email:          bob@gmail.com
     password:       secret
-    firstName:       Bob
+    firstName:      Bob
+    lastName:       Jones
     isAdmin:        true
     duties:
                     - d1
@@ -111,9 +112,34 @@ User(bob):
 User(jeff):
     email:          jeff@gmail.com
     password:       secret
-    firstName:       Jeff
+    firstName:      Jeff
+    lastName:       Smith
     duties:
                     - d4
                     - d5
                     - d6
-    
+                    
+User(adam):
+    email:          adam@gmail.com
+    password:       secret
+    firstName:      Adam
+    lastName:       Smith
+    duties:
+                    - d12
+                    - d5
+                    - d8
+                    - d8
+User(dennis):
+    email:          dennis@gmail.com
+    password:       secret
+    firstName:      Dennis
+    lastName:       Ritchie
+    duties:
+                    - d12
+                    - d5
+                    - d8
+                    - d8
+Time(t0):
+  time:             1
+  duty:             d5
+  user:             dennis    

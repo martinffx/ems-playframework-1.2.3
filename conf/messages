@@ -17,8 +17,9 @@ crud.dutys.list.title = Manage - Duties
 crud.dutys.show.title = Add - Duty
 crud.dutys.add = Add Duty &raquo;
 crud.dutys.blank.title = Add Duty
-crud.qualifications.blank.title = Manage - Qualifications
-crud.qualifications.add = Add Qualification &raquo;
+crud.times.list.title = Manage Times
+crud.times.staff.add = Capture Time &raquo;
+crud.times.blank.title = Capture Time
 
 email=Email&nbsp;&nbsp;:&nbsp;&nbsp;
 password=Password&nbsp;&nbsp;:&nbsp;&nbsp;

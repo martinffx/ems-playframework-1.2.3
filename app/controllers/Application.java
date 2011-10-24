@@ -15,7 +15,8 @@ public class Application extends Controller {
     }
     
     public static void time(String category){
-      List<Time> times = Time.listBycategoryAndUser(category);
+      String userEmail = session.get("username");
+      List<Time> times = Time.listBycategoryAndUser(category, userEmail);
       render(times);
     }
     
