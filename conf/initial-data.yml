@@ -14,6 +14,10 @@ Duty(d2):
     category:       
                     - research
 Duty(d3):
+    name:           Knowledge Management
+    category:       
+                    - admin
+Duty(d3):
     name:           Operating Systems
     category:       
                     - admin
@@ -103,11 +107,6 @@ User(bob):
     password:       secret
     firstName:      Bob
     lastName:       Jones
-    isAdmin:        true
-    duties:
-                    - d1
-                    - d2
-                    - d3
     
 User(jeff):
     email:          jeff@gmail.com
@@ -128,18 +127,499 @@ User(adam):
                     - d12
                     - d5
                     - d8
-                    - d8
+                    - d3
 User(dennis):
     email:          dennis@gmail.com
     password:       secret
     firstName:      Dennis
     lastName:       Ritchie
     duties:
-                    - d12
-                    - d5
-                    - d8
+                    - d19
+                    - d11
+                    - d15
                     - d8
 Time(t0):
-  time:             1
+  Hours:            0
+  Minutes:          30
+  duty:             d8
+  user:             adam
+  
+Time(t1):
+  Hours:            1
+  Minutes:          15
+  duty:             d8
+  user:             adam
+  
+Time(t2):
+  Hours:            1
+  Minutes:          0
+  duty:             d8
+  user:             adam
+  
+Time(t3):
+  Hours:            1
+  Minutes:          15
+  duty:             d3
+  user:             adam
+  
+Time(t4):
+  Hours:            1
+  Minutes:          0
+  duty:             d12
+  user:             adam
+  
+Time(t5):
+  Hours:            1
+  Minutes:          15
+  duty:             d3
+  user:             adam
+  
+Time(t6):
+  Hours:            0
+  Minutes:          45
   duty:             d5
-  user:             dennis    
+  user:             adam
+  
+Time(t7):
+  Hours:            1
+  Minutes:          15
+  duty:             d11
+  user:             adam
+  
+Time(t8):
+  Hours:            1
+  Minutes:          15
+  duty:             d5
+  user:             adam
+  
+Time(t9):
+  Hours:            1
+  Minutes:          0
+  duty:             d5
+  user:             adam
+  
+Time(t10):
+  Hours:            1
+  Minutes:          15
+  duty:             d12
+  user:             adam
+
+Time(t11):
+  Hours:            1
+  Minutes:          0
+  duty:             d3
+  user:             adam
+
+Time(t12):
+  Hours:            1
+  Minutes:          45
+  duty:             d3
+  user:             adam
+
+Time(t13):
+  Hours:            3
+  Minutes:          0
+  duty:             d8
+  user:             adam
+
+Time(t14):
+  Hours:            2
+  Minutes:          15
+  duty:             d3
+  user:             adam
+
+Time(t15):
+  Hours:            1
+  Minutes:          15
+  duty:             d12
+  user:             adam
+
+Time(t16):
+  Hours:            3
+  Minutes:          15
+  duty:             d12
+  user:             adam
+
+Time(t17):
+  Hours:            0
+  Minutes:          30
+  duty:             d5
+  user:             adam
+
+Time(t18):
+  Hours:            1
+  Minutes:          15
+  duty:             d12
+  user:             adam
+
+Time(t19):
+  Hours:            0
+  Minutes:          45
+  duty:             d8
+  user:             adam
+
+Time(t20):
+  Hours:            2
+  Minutes:          15
+  duty:             d8
+  user:             adam
+ 
+Time(t21):
+  Hours:            1
+  Minutes:          15
+  duty:             d8
+  user:             adam
+  
+Time(t22):
+  Hours:            1
+  Minutes:          0
+  duty:             d8
+  user:             adam
+  
+Time(t23):
+  Hours:            1
+  Minutes:          15
+  duty:             d5
+  user:             adam
+  
+Time(t24):
+  Hours:            1
+  Minutes:          0
+  duty:             d12
+  user:             adam
+  
+Time(t25):
+  Hours:            1
+  Minutes:          15
+  duty:             d5
+  user:             adam
+  
+Time(t26):
+  Hours:            0
+  Minutes:          45
+  duty:             d5
+  user:             adam
+  
+Time(t27):
+  Hours:            1
+  Minutes:          15
+  duty:             d12
+  user:             adam
+  
+Time(t28):
+  Hours:            1
+  Minutes:          15
+  duty:             d5
+  user:             adam
+  
+Time(t29):
+  Hours:            1
+  Minutes:          0
+  duty:             d5
+  user:             adam
+  
+Time(t30):
+  Hours:            1
+  Minutes:          15
+  duty:             d3
+  user:             adam
+
+Time(t31):
+  Hours:            1
+  Minutes:          0
+  duty:             d3
+  user:             adam
+
+Time(t32):
+  Hours:            1
+  Minutes:          45
+  duty:             d3
+  user:             adam
+
+Time(t33):
+  Hours:            3
+  Minutes:          0
+  duty:             d8
+  user:             dennis
+
+Time(t34):
+  Hours:            2
+  Minutes:          15
+  duty:             d3
+  user:             adam
+
+Time(t35):
+  Hours:            1
+  Minutes:          15
+  duty:             d3
+  user:             adam
+
+Time(t36):
+  Hours:            3
+  Minutes:          15
+  duty:             d12
+  user:             adam
+
+Time(t37):
+  Hours:            0
+  Minutes:          30
+  duty:             d5
+  user:             adam
+
+Time(t38):
+  Hours:            1
+  Minutes:          15
+  duty:             d12
+  user:             adam
+
+Time(t39):
+  Hours:            0
+  Minutes:          45
+  duty:             d8
+  user:             adam
+
+Time(t40):
+  Hours:            2
+  Minutes:          15
+  duty:             d8
+  user:             adam  
+  
+Time(t41):
+  Hours:            1
+  Minutes:          15
+  duty:             d8
+  user:             dennis
+  
+Time(t42):
+  Hours:            1
+  Minutes:          0
+  duty:             d8
+  user:             dennis
+  
+Time(t43):
+  Hours:            1
+  Minutes:          15
+  duty:             d15
+  user:             dennis
+  
+Time(t44):
+  Hours:            1
+  Minutes:          0
+  duty:             d11
+  user:             dennis
+  
+Time(t45):
+  Hours:            1
+  Minutes:          15
+  duty:             d15
+  user:             dennis
+  
+Time(t46):
+  Hours:            0
+  Minutes:          45
+  duty:             d15
+  user:             dennis
+  
+Time(t47):
+  Hours:            1
+  Minutes:          15
+  duty:             d11
+  user:             dennis
+  
+Time(t48):
+  Hours:            1
+  Minutes:          15
+  duty:             d15
+  user:             dennis
+  
+Time(t49):
+  Hours:            1
+  Minutes:          0
+  duty:             d15
+  user:             dennis
+  
+Time(t50):
+  Hours:            1
+  Minutes:          15
+  duty:             d19
+  user:             dennis
+
+Time(t51):
+  Hours:            1
+  Minutes:          0
+  duty:             d19
+  user:             dennis
+
+Time(t52):
+  Hours:            1
+  Minutes:          45
+  duty:             d19
+  user:             dennis
+
+Time(t53):
+  Hours:            3
+  Minutes:          0
+  duty:             d8
+  user:             dennis
+
+Time(t54):
+  Hours:            2
+  Minutes:          15
+  duty:             d19
+  user:             dennis
+
+Time(t55):
+  Hours:            1
+  Minutes:          15
+  duty:             d11
+  user:             dennis
+
+Time(t56):
+  Hours:            3
+  Minutes:          15
+  duty:             d11
+  user:             dennis
+
+Time(t57):
+  Hours:            0
+  Minutes:          30
+  duty:             d15
+  user:             dennis
+
+Time(t58):
+  Hours:            1
+  Minutes:          15
+  duty:             d11
+  user:             dennis
+
+Time(t59):
+  Hours:            0
+  Minutes:          45
+  duty:             d8
+  user:             dennis
+
+Time(t60):
+  Hours:            2
+  Minutes:          15
+  duty:             d8
+  user:             dennis
+ 
+Time(t61):
+  Hours:            1
+  Minutes:          15
+  duty:             d8
+  user:             dennis
+  
+Time(t62):
+  Hours:            1
+  Minutes:          0
+  duty:             d8
+  user:             dennis
+  
+Time(t63):
+  Hours:            1
+  Minutes:          15
+  duty:             d15
+  user:             dennis
+  
+Time(t64):
+  Hours:            1
+  Minutes:          0
+  duty:             d11
+  user:             dennis
+  
+Time(t65):
+  Hours:            1
+  Minutes:          15
+  duty:             d15
+  user:             dennis
+  
+Time(t66):
+  Hours:            0
+  Minutes:          45
+  duty:             d15
+  user:             dennis
+  
+Time(t67):
+  Hours:            1
+  Minutes:          15
+  duty:             d11
+  user:             dennis
+  
+Time(t68):
+  Hours:            1
+  Minutes:          15
+  duty:             d15
+  user:             dennis
+  
+Time(t69):
+  Hours:            1
+  Minutes:          0
+  duty:             d15
+  user:             dennis
+  
+Time(t70):
+  Hours:            1
+  Minutes:          15
+  duty:             d19
+  user:             dennis
+
+Time(t71):
+  Hours:            1
+  Minutes:          0
+  duty:             d19
+  user:             dennis
+
+Time(t72):
+  Hours:            1
+  Minutes:          45
+  duty:             d19
+  user:             dennis
+
+Time(t73):
+  Hours:            3
+  Minutes:          0
+  duty:             d8
+  user:             dennis
+
+Time(t74):
+  Hours:            2
+  Minutes:          15
+  duty:             d19
+  user:             dennis
+
+Time(t75):
+  Hours:            1
+  Minutes:          15
+  duty:             d11
+  user:             dennis
+
+Time(t76):
+  Hours:            3
+  Minutes:          15
+  duty:             d11
+  user:             dennis
+
+Time(t77):
+  Hours:            0
+  Minutes:          30
+  duty:             d15
+  user:             dennis
+
+Time(t78):
+  Hours:            1
+  Minutes:          15
+  duty:             d11
+  user:             dennis
+
+Time(t79):
+  Hours:            0
+  Minutes:          45
+  duty:             d8
+  user:             dennis
+
+Time(t80):
+  Hours:            2
+  Minutes:          15
+  duty:             d8
+  user:             dennis  

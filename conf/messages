@@ -18,7 +18,7 @@ crud.dutys.show.title = Add - Duty
 crud.dutys.add = Add Duty &raquo;
 crud.dutys.blank.title = Add Duty
 crud.times.list.title = Manage Times
-crud.times.staff.add = Capture Time &raquo;
+crud.times.add = Capture Time &raquo;
 crud.times.blank.title = Capture Time
 
 email=Email&nbsp;&nbsp;:&nbsp;&nbsp;

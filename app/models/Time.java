@@ -46,7 +46,7 @@ public class Time extends Model {
   }
   
   public static List<Time> listBycategoryAndUser(String category, String email){
-    List<Time> times = Time.find("select t from Time t join t.duty d join d.Category c join t.staff u where" + 
+    List<Time> times = Time.find("select t from Time t join t.Duty d join d.Category c join t.staff u where" + 
       " c.name = '" + category + "' and u.email = '" + email + "'").fetch();
     return times;
   }
