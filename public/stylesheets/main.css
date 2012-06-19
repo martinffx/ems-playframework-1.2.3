@@ -1,3 +1,26 @@
+/* print overrides */
+@media print {
+	.functions {
+		display:none;
+	}
+}
+
+/* Bottom functions */
+.functions {
+	width:100%;
+	text-align:center;
+	margin-top:40px;
+}
+
+.print {
+	margin-top:10px;
+	margin-right:10px;
+	display: block;
+	border:1px solid #AAAAAA;
+	width:50px;
+	float:right;
+}
+
 /* Top Menu Bar */
 .topbar div span.logout{
 	float: right;

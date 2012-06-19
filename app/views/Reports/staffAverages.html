@@ -1,0 +1,14 @@
+#{extends 'main.html' /}
+#{set title:'EMS - Reports' /}
+<div id="crudList" class="test">
+	
+	<div id="details">
+		<h2>Staff Averages - ${staffMember} (${year})</h2>
+	</div>
+
+	<div id="graph">
+		<img src="%{ out.print(report.generateGraph()); }%" width="%{ out.print(report.getWidth()); }%" height="%{ out.print(report.getHeight()); }%" />
+	</div>
+    
+
+</div>

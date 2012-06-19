@@ -10,17 +10,17 @@ import play.data.validation.*;
 public class DutyCategory extends Model {
 
     @Required
-    public String name;
+    public String Name;
     
     @OneToMany
     public List<Duty> dutys;
     
     public DutyCategory(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     public String toString() {
-        return name;
+        return Name;
     }
     
     public static List<Duty> getDutys(Long id){

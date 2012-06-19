@@ -110,7 +110,7 @@ public class Users extends CRUD {
 	        if(dutyCategory != null){
 	            for(String s : dutyCategory){
 	                System.out.println(s);
-	                duties.add(Duty.findByNameAndCategory(s, dc.name));
+	                duties.add(Duty.findByNameAndCategory(s, dc.Name));
 	            }
 	        }
 	    }

@@ -1,0 +1,60 @@
+#{extends 'main.html' /}
+#{set title:'EMS - Reports' /}
+<div id="crudList" class="test">
+	#{if filteredTimes.size()}
+	<h2>Daily Details per Staff Member - ${filteredTimes.get(0).staff.firstName} ${filteredTimes.get(0).staff.lastName} (${month}/${year})</h2>
+	
+	<div class="table">
+		#{list items:dutyCategories, as:'dutyCategory'}
+		<h3><u>${dutyCategory.Name}</u></h3>
+			#{list items:duties, as:'duty'}
+				#{if duty.Category.id == dutyCategory.id}
+					<h4>${duty.Name}</h4>
+					#{if duty.Category.Name.equalsIgnoreCase("Research") || duty.Category.Name.equalsIgnoreCase("Teaching") }<table>
+						<thead>
+							<tr>
+								#{if duty.Category.Name.equalsIgnoreCase("Research") || duty.Category.Name.equalsIgnoreCase("Teaching") }<td><u>No. Students</u></td>#{/if}
+								#{if duty.Category.Name.equalsIgnoreCase("Research")}<td><u>No. Assistants</u></td>#{/if}
+								#{if duty.Category.Name.equalsIgnoreCase("Research")}<td><u>Grants?</u></td>#{/if}
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								#{if duty.Category.Name.equalsIgnoreCase("Research") || duty.Category.Name.equalsIgnoreCase("Teaching") }<td>${duty.Students}</td>#{/if}
+								#{if duty.Category.Name.equalsIgnoreCase("Research")}<td>${duty.Assistants}</td>#{/if}
+								#{if duty.Category.Name.equalsIgnoreCase("Research")}<td>
+								%{
+									if(duty.Grants)
+										out.println("yes");
+									else
+										out.println("no");
+								}%
+								</td>#{/if}
+							</tr>
+						</tbody>
+					</table>#{/if}
+					
+					<table>
+					<thead>
+						<tr>
+							<td><u>Date</u></td>
+							<td><u>Captured Time (Minutes)</u></td>
+						</tr>
+					</thead>
+					<tbody>
+					#{list items:filteredTimes, as:'time'}
+						#{if time.Duty.id == duty.id}
+						<tr>
+							<td>%{out.println((time.Date.toString().split(" ")[0]));}%</td>
+							<td>${time.getTimeMinutes()}</td>
+						</tr>
+						#{/if}
+					#{/list}
+					</tbody>
+					</table>
+				#{/if}
+			#{/list}
+		#{/list}
+	</div>
+	#{/if}
+</div>

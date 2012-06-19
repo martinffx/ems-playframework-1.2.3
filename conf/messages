@@ -20,6 +20,7 @@ crud.dutys.blank.title = Add Duty
 crud.times.list.title = Manage Times
 crud.times.add = Capture Time &raquo;
 crud.times.blank.title = Capture Time
+crud.times.show.title = Capture Time
 
 email=Email&nbsp;&nbsp;:&nbsp;&nbsp;
 password=Password&nbsp;&nbsp;:&nbsp;&nbsp;

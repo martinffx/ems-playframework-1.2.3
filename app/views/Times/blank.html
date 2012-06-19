@@ -1,0 +1,41 @@
+#{extends 'main.html' /}
+#{set title:messages.get('crud.blank.title', type.modelName) /}
+
+<div id="crudBlank" class="${type.name}">
+
+    <h2 id="crudShowTitle">&{"Capture Time - " + category}</h2>
+
+    <div class="objectForm">
+    #{form action:@create(category, email), enctype:'multipart/form-data'}
+        #{crud.form }
+          #{crud.custom 'staff'}
+          #{/crud.custom}s
+          #{crud.custom 'Duty'}
+          <label>
+            <span>
+              Duty&nbsp;&nbsp;:&nbsp;&nbsp;
+            </span></label>
+            <select id="object_Duty" name="object.Duty">
+              #{list items:models.Duty.getForUser(email, category), as:'duty'}
+                #{if duty_isFirst}
+                  <option value="">-- Select Duty --</option>
+                #{/if}
+                <option value="${duty._key()}">${duty.Name}</option>
+              #{/list}
+            </select>
+          
+          <div style="clear:both;">
+          </div>
+          #{/crud.custom}
+          #{crud.custom 'capturedDate'}
+          #{/crud.custom}
+        #{/crud.form}
+        <p class="crudButtons">
+            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+            <input type="submit" name="_saveAndAddAnother" value="&{'crud.saveAndAddAnother', type.modelName}" />
+        </p>
+    #{/form}
+    </div>
+
+</div>

@@ -11,21 +11,21 @@
   </p>
   <ul class="tabs" data-tabs="tabs" >
     #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
-         <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.name}">${dutyCategory.name}</a></li>
+         <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.Name}">${dutyCategory.Name}</a></li>
     #{/list}
   </ul>
     <div id="my-tab-content" class="tab-content">
       #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
-        <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.name}">
+        <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.Name}">
           <table border="0" cellspacing="0" cellpadding="0">
             <tr>
               <th>
                 Duty</th>
             </tr>
-            #{list items:models.Duty.getByCategory(dutyCategory.name), as:'duty'}
+            #{list items:models.Duty.getByCategory(dutyCategory.Name), as:'duty'}
               <tr>
                 <td>
-                  <a href="@{show(duty._key())}">${duty.name}</a></td>
+                  <a href="@{show(duty._key())}">${duty.Name}</a></td>
               </tr>
             #{/list}
           </table>

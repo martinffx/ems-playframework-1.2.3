@@ -51,6 +51,12 @@ public class User extends Model {
         return users;
     }
     
+    public static User getUserByEmail(String email){
+      List<User> users = User.find("select u from User u where u.email = '" + email + "'").fetch();
+      User user = users.get(0);
+      return user;
+    }
+    
     public static List<User> listUsers(){
         List<User> users = User.find("select u from User u where u.isAdmin = false").fetch();
         return users;

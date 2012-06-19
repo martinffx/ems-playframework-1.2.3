@@ -21,27 +21,27 @@
             <div style="margin-left:130px;width:500px;">
               <ul class="tabs" data-tabs="tabs" >
               #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
-	                 <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.name}">${dutyCategory.name}</a></li>
+	                 <li class="${dutyCategory_isFirst ?'active':'' }"><a href="#${dutyCategory.Name}">${dutyCategory.Name}</a></li>
               #{/list}
             </ul>
               <div id="my-tab-content" class="tab-content">
                 #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
-                  <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.name}">
+                  <div class="${dutyCategory_isFirst ?'active':'' }" id="${dutyCategory.Name}">
                     <ul class="unstyled">
-                    #{list items:models.Duty.getByCategory(dutyCategory.name), as:'duty'}
+                    #{list items:models.Duty.getByCategory(dutyCategory.Name), as:'duty'}
                       <li>
                         #{if object.duties.contains(duty)}
-                          <label>
+                          <label style="float:none;">
                             <input type="checkbox" name="duty.${dutyCategory}" 
-                                value="${duty.name}" checked="true" />
-                             <span>&nbsp;${duty.name}</span>
+                                value="${duty.Name}" checked="true" />
+                             <span>&nbsp;${duty.Name}</span>
                            </label>
                         #{/if}
                         #{else}
-                          <label>
+                          <label style="float:none;">
                             <input type="checkbox" name="duty.${dutyCategory}" 
-                                value="${duty.name}" />
-                            <span>&nbsp;${duty.name}</span>
+                                value="${duty.Name}" />
+                            <span>&nbsp;${duty.Name}</span>
                           </label>
                         #{/else}
                         </li>

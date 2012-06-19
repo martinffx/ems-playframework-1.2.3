@@ -1,0 +1,35 @@
+#{extends 'main.html' /}
+#{set title:'EMS - Reports' /}
+<div id="crudList" class="test">
+	
+	<div class="table">
+		<h2>Category Total Statistics (${year})</h2>
+		#{if dutyTotals.size()}
+			<table>
+			<thead style="font-weight:bold;">
+			<tr>
+			<td><u>Category</u></td>
+			<td><u>Total (Minutes)</u></td>
+			</tr>
+			</thead>
+			<tbody>
+				%{Integer totals = 0;}%
+				#{list dutyTotals.keySet(), as:'key1'}
+					%{totals += Integer.parseInt(dutyTotals.get(key1).toString());}%
+					<tr><td>${key1}</td><td>${dutyTotals.get(key1)}</td>
+				#{/list}
+				<tr>
+					<td><b>Total</b></td>
+					<td style="font-weight:bold !important;">%{ out.println(totals.toString()); }%</td>
+				</tr>
+			</tbody>
+			</table>
+		#{/if}
+	</div>
+
+	<div class="graph">
+		<img src="%{ out.print(report.generateGraph()); }%" />
+	</div>
+    
+
+</div>

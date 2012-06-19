@@ -1,0 +1,39 @@
+#{extends 'main.html' /}
+#{set title:'EMS - Reports' /}
+<div id="crudList" class="test">
+	
+	<div id="userList">
+		<h2>User List</h2>
+		#{if users.size()}
+			<table>
+			<thead style="font-weight:bold;">
+			<tr>
+			<td>Users</td>
+			<td>Type</td>
+			</tr>
+			</thead>
+			<tbody>
+				#{list items:users, as:'user'}
+					%{
+						isAdminText = "";
+					
+						if(user.isAdmin) {
+							isAdminText = "Administrator";
+						} else {
+							isAdminText = "Staff Member";
+						}
+					}%
+				
+					<tr><td>${user.firstName} ${user.lastName}</td><td>${isAdminText}</td>
+				#{/list}
+			</tbody>
+			</table>
+		#{/if}
+	</div>
+
+	<div id="graphList">
+		<img src="%{ out.print(report.generateGraph()); }%" width="%{ out.print(report.getWidth()); }%" height="%{ out.print(report.getHeight()); }%" />
+	</div>
+    
+
+</div>

@@ -1,0 +1,98 @@
+#{extends 'main.html' /}
+#{set title:'EMS - Reports' /}
+<div id="crudList" class="test">
+	#{if filteredTimes.size()}
+	<h2>Monthly Totals per Staff Member - ${filteredTimes.get(1).staff.firstName} ${filteredTimes.get(1).staff.lastName} (${year})</h2>
+	<div class="table">
+		<table>
+			<thead>
+				<tr>
+					<td><u>Month / Period</u></td>
+					<td><u>Name</u></td>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td>1-3</td>
+					<td>Semester 1</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>Easter Mid-Semester Break</td>
+				</tr>
+				<tr>
+					<td>5-7</td>
+					<td>Summer Semester</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>Summer Semester Break</td>
+				</tr>
+				<tr>
+					<td>9-11</td>
+					<td>Semester 1</td>
+				</tr>
+				<tr>
+					<td>12</td>
+					<td>Xmas Mid-Semester Break</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="table">
+		<table>
+		<thead style="font-weight:bold;">
+		<tr>
+		<td><u>Month</u></td>
+		<td><u>Duty</u></td>
+		<td><u>Total (Minutes)</u></td>
+		</tr>
+		</thead>
+		<tbody>
+				%{ int totalTimeOverAll = 0; }%
+				#{list items:dutyCategories, as:'dutyCategory'}
+				<tr><td colspan="3"><u>${dutyCategory.Name}</u></td></tr>
+					
+							#{list 1..12, as:'i'}
+								
+								#{list items:duties, as:'duty'}
+									%{ int totalTimeMonth = 0;}%
+									#{if duty.Category.id == dutyCategory.id}
+										
+										#{list items:filteredTimes, as:'time'}
+											%{
+											
+											}%
+											#{if Integer.parseInt(monthformatter.format(time.Date.getTime())) == i && time.Duty.id == duty.id && time.Duty.Category.id == duty.Category.id}
+												%{
+													totalTimeMonth += time.getTimeMinutes();
+													totalTimeOverAll += time.getTimeMinutes();
+												}%
+											#{/if}
+										#{/list}
+										
+										%{if(totalTimeMonth > 0) {}%
+										<tr>
+											<td>${i}</td>
+											<td>${duty.Name}</td>
+											<td>${totalTimeMonth}</td>
+										</tr>
+										%{}}%
+									#{/if}
+								#{/list}
+							#{/list}
+				#{/list}
+		</tbody>
+		</table>
+		<br/>
+		</table>
+		<tr>
+			<td>Total:</td>
+			<td colspan="2">${totalTimeOverAll} minutes</td>
+		</tr>
+		</table>
+	</div>
+	#{/if}
+</div>

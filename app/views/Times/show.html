@@ -1,0 +1,34 @@
+#{extends 'main.html' /}
+#{set title:messages.get('crud.show.title', type.modelName) /}
+
+<div id="crudShow" class="${type.name}">
+
+    <h2 id="crudShowTitle">&{"Capture Time - " + category}</h2>
+    
+    #{form @delete(object._key(), category)}
+        <p class="crudDelete" style="float: right;">
+            <input type="submit" value="&{'crud.delete', type.modelName}" />
+        </p>
+    #{/form}
+
+    <div class="objectForm">
+    #{form action:@save(object._key(), category), enctype:'multipart/form-data'}
+        #{crud.form }
+          #{crud.custom 'staff'}
+          #{/crud.custom}
+          #{crud.custom 'Duty'}
+          #{/crud.custom}
+          #{crud.custom 'capturedDate'}
+          #{/crud.custom}
+        #{/crud.form}
+        <br/>
+        <p class="crudButtons">
+            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+        </p>
+    #{/form}
+    </div>
+
+    
+
+</div>

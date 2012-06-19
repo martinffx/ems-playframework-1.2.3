@@ -1,0 +1,387 @@
+#{extends 'main.html' /}
+#{set title:'EMS - Reports' /}
+<div id="crudList" >
+	
+	<div class="CrudTitle">
+    	<h2 id="crudListTitle">Select Report</h2>
+	</div>
+	<div style="clear:both;"></div>
+	<br/>
+	<a class="show" style="cursor: pointer; float:left;">SEMESTER DATES</a>
+	<br/>
+	<br/>
+	<div class="table semesterDates">
+		<table>
+			<thead>
+				<tr>
+					<td colspan="2"><u>SEMESTER DATES</u></td>
+				</tr>
+				<tr>
+					<td><u>Month / Period</u></td>
+					<td><u>Name</u></td>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td>1-3</td>
+					<td>Semester 1</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>Easter Mid-Semester Break</td>
+				</tr>
+				<tr>
+					<td>5-7</td>
+					<td>Summer Semester</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>Summer Semester Break</td>
+				</tr>
+				<tr>
+					<td>9-11</td>
+					<td>Semester 1</td>
+				</tr>
+				<tr>
+					<td>12</td>
+					<td>Xmas Mid-Semester Break</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br/>
+	<div id="crudListTable">
+        <table>
+			<tbody>
+				<tr>
+					<td>
+						
+						<ul>
+						<li>
+							<div>
+								<h5>User List</h5>
+								Display a list of users and their associated types.<br/><br/>
+								<form id="userList" action="./reports/userlist" method="get">
+									<table>
+										<tr>
+											<td colspan="2">
+												<input type="submit" value="render" />
+											</td>
+										</tr>
+									</table>
+								</form>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h5>Category Total Statistics</h5>
+								Display a list of category totals for the selected year<br/><br/>
+								<form id="dutyTotals" action="./reports/dutyTotals" method="get">
+									<table>
+									<tr>
+										<td>Year: </td>
+										<td>
+											<select name="year">
+												%{
+													Calendar now = Calendar.getInstance();
+													java.text.SimpleDateFormat yearformatter= new java.text.SimpleDateFormat("yyyy");
+													
+													int year = Integer.parseInt(yearformatter.format(now.getTime())) + 20;
+													int currentYear = Integer.parseInt(yearformatter.format(now.getTime()));
+												
+													for (int i= 0; i >= -40; i--) {
+														year--; 
+														
+														if(currentYear == year)
+															out.println(String.format("<option selected>%s</option>", year));
+														else
+															out.println(String.format("<option>%s</option>", year));
+													}
+												}%
+											</select>
+										</td>
+									</tr>
+									<tr><td colspan="2"><input type="submit" value="render" /></td></tr>
+									</table>
+								</form>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h5>Monthly Totals per Staff Member</h5>
+								Display totals per staff member.<br/><br/>
+								<form id="dutyTotals" action="./reports/staffMonthTotals" method="get">
+									<table>
+									<tr>
+										<td>
+											Staff:
+										</td>
+										<td>
+											<select name="user">
+												#{list items:users, as:'user'}
+													<option value="${user.id}">${user.firstName} ${user.lastName}</option>
+												#{/list}
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>Year: </td>
+										<td>
+											<select name="year">
+												%{
+													now = Calendar.getInstance();
+													yearformatter= new java.text.SimpleDateFormat("yyyy");
+													
+													year = Integer.parseInt(yearformatter.format(now.getTime())) + 20;
+													currentYear = Integer.parseInt(yearformatter.format(now.getTime()));
+												
+													for (int i= 0; i >= -40; i--) {
+														year--; 
+														
+														if(currentYear == year)
+															out.println(String.format("<option selected>%s</option>", year));
+														else
+															out.println(String.format("<option>%s</option>", year));
+													}
+												}%
+											</select>
+										</td>
+									</tr>
+									<tr><td colspan="2"><input type="submit" value="render" /></td></tr>
+									</table>
+								</form>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h5>Daily details per Staff Member</h5>
+								Display captured times and details per staff member.<br/><br/>
+								<form id="dutyTotals" action="./reports/staffDailyDetails" method="get">
+									<table>
+									<tr>
+										<td>
+											Staff:
+										</td>
+										<td>
+											<select name="user">
+												#{list items:users, as:'user'}
+													<option value="${user.id}">${user.firstName} ${user.lastName}</option>
+												#{/list}
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>Month: </td>
+										<td>
+											<select name="month">
+												<option value="1">January</option>
+												<option value="2">February</option>
+												<option value="3">March</option>
+												<option value="4">April</option>
+												<option value="5">May</option>
+												<option value="6">June</option>
+												<option value="7">July</option>
+												<option value="8">August</option>
+												<option value="9">September</option>
+												<option value="10">October</option>
+												<option value="11">November</option>
+												<option value="12">December</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>Year: </td>
+										<td>
+											<select name="year">
+												%{
+													now = Calendar.getInstance();
+													yearformatter= new java.text.SimpleDateFormat("yyyy");
+													
+													year = Integer.parseInt(yearformatter.format(now.getTime())) + 20;
+													currentYear = Integer.parseInt(yearformatter.format(now.getTime()));
+												
+													for (int i= 0; i >= -40; i--) {
+														year--; 
+														
+														if(currentYear == year)
+															out.println(String.format("<option selected>%s</option>", year));
+														else
+															out.println(String.format("<option>%s</option>", year));
+													}
+												}%
+											</select>
+										</td>
+									</tr>
+									<tr><td colspan="2"><input type="submit" value="render" /></td></tr>
+									</table>
+								</form>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h5>Staff Annual Averages</h5>
+								Display averages for a staff member<br/><br/>
+								<form id="dutyTotals" action="./reports/staffAverages" method="get">
+									<table>
+									<tr>
+										<td>
+											Staff:
+										</td>
+										<td>
+											<select name="user">
+												#{list items:users, as:'user'}
+													<option value="${user.id}">${user.firstName} ${user.lastName}</option>
+												#{/list}
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>Year: </td>
+										<td>
+											<select name="year">
+												%{
+													now = Calendar.getInstance();
+													yearformatter= new java.text.SimpleDateFormat("yyyy");
+													
+													year = Integer.parseInt(yearformatter.format(now.getTime())) + 20;
+													currentYear = Integer.parseInt(yearformatter.format(now.getTime()));
+												
+													for (int i= 0; i >= -40; i--) {
+														year--; 
+														
+														if(currentYear == year)
+															out.println(String.format("<option selected>%s</option>", year));
+														else
+															out.println(String.format("<option>%s</option>", year));
+													}
+												}%
+											</select>
+										</td>
+									</tr>
+									<tr><td colspan="2"><input type="submit" value="render" /></td></tr>
+									</table>
+								</form>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h5>Duty Statistics</h5>
+								Display captured times per duty<br/><br/>
+								<form id="dutyTotals" action="./reports/dutyStatistics" method="get">
+									<table>
+									<tr>
+										<td>Month: </td>
+										<td>
+											<select name="month">
+												<option value="1">January</option>
+												<option value="2">February</option>
+												<option value="3">March</option>
+												<option value="4">April</option>
+												<option value="5">May</option>
+												<option value="6">June</option>
+												<option value="7">July</option>
+												<option value="8">August</option>
+												<option value="9">September</option>
+												<option value="10">October</option>
+												<option value="11">November</option>
+												<option value="12">December</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>Year: </td>
+										<td>
+											<select name="year">
+												%{
+													now = Calendar.getInstance();
+													yearformatter= new java.text.SimpleDateFormat("yyyy");
+													
+													year = Integer.parseInt(yearformatter.format(now.getTime())) + 20;
+													currentYear = Integer.parseInt(yearformatter.format(now.getTime()));
+												
+													for (int i= 0; i >= -40; i--) {
+														year--; 
+														
+														if(currentYear == year)
+															out.println(String.format("<option selected>%s</option>", year));
+														else
+															out.println(String.format("<option>%s</option>", year));
+													}
+												}%
+											</select>
+										</td>
+									</tr>
+									<tr><td colspan="2"><input type="submit" value="render" /></td></tr>
+									</table>
+								</form>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h5>General Statistics</h5>
+								Display calculated aggregates<br/><br/>
+								<form id="dutyTotals" action="./reports/generalStatistics" method="get">
+									<table>
+									<tr>
+										<td>Month: </td>
+										<td>
+											<select name="month">
+												<option value="1">January</option>
+												<option value="2">February</option>
+												<option value="3">March</option>
+												<option value="4">April</option>
+												<option value="5">May</option>
+												<option value="6">June</option>
+												<option value="7">July</option>
+												<option value="8">August</option>
+												<option value="9">September</option>
+												<option value="10">October</option>
+												<option value="11">November</option>
+												<option value="12">December</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>Year: </td>
+										<td>
+											<select name="year">
+												%{
+													now = Calendar.getInstance();
+													yearformatter= new java.text.SimpleDateFormat("yyyy");
+													
+													year = Integer.parseInt(yearformatter.format(now.getTime())) + 20;
+													currentYear = Integer.parseInt(yearformatter.format(now.getTime()));
+												
+													for (int i= 0; i >= -40; i--) {
+														year--; 
+														
+														if(currentYear == year)
+															out.println(String.format("<option selected>%s</option>", year));
+														else
+															out.println(String.format("<option>%s</option>", year));
+													}
+												}%
+											</select>
+										</td>
+									</tr>
+									<tr><td colspan="2"><input type="submit" value="render" /></td></tr>
+									</table>
+								</form>
+							</div>
+						</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+    </div>  
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".semesterDates").hide();
+  });
+  $(".show").click(function(){
+    $(".semesterDates").toggle();
+  });
+</script>

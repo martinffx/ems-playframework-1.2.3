@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+#{set title:'EMS - Reports' /}
+<div id="crudList" class="test">
+	<div>
+		<h2>General Statistics - ${month}/${year}</h2>
+		#{if outputLines.size()}
+			#{list items:outputLines, as:'line'}
+				<h3>${line}</h3>
+			#{/list}
+		#{/if}
+	</div>
+</div>

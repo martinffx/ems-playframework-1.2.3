@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'EMS - Reports' /}
+<div id="crudList" class="test">
+	
+	<div id="details">
+		<h2>Staff Averages - ${month}/${year}</h2>
+	</div>
+
+	#{list items:reports, as:'report'}
+	<div class="graph">
+		<img src="%{ out.print(report.generateGraph()); }%" width="%{ out.print(report.getWidth()); }%" height="%{ out.print(report.getHeight()); }%" />
+		<br/><br/>
+	</div>
+    #{/list}
+
+</div>

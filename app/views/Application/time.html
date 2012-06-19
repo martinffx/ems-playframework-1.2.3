@@ -1,0 +1,42 @@
+#{extends 'main.html' /}
+#{set title:messages.get('crud.dutys.show.title', type.modelName) /}
+
+<div id="crudList" class="${type.name}">
+	<div class="CrudTitle">
+    	<h2 id="crudListTitle">&{'crud.dutys.list.title', type.name}</h2>
+	</div>
+	<div style="clear:both;"></div>
+	<p id="crudListAdd" style="float: right;">
+      <a href="@{blank()}">&{'crud.dutys.add', type.modelName}</a>
+  </p>
+  <ul class="tabs" data-tabs="tabs" >
+    #{list items:models.DutyCategory.findAll(), as:'dutyCategory'}
+      #{if dutyCategory.name = category}
+        <li class="active"><a href="@{time(dutyCategory.name)">${dutyCategory.name}</a></li>
+      #{/if}
+      #{else}
+        <li><a href="@{time(dutyCategory.name)}">${dutyCategory.name}</a></li>
+      #{/else}
+    #{/list}
+  </ul>
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th>
+        Duty</th>
+      <th>
+        Time</th>
+      <th>
+        Date</th>
+    </tr>
+    #{list items:times, as: 'time'}
+      <tr>
+        <td>
+          &{time.duty.name}</td>
+        <td>
+          &{time.time}</td>
+        <td>
+          &{time.date}</td>
+      </tr>
+    #{/list}
+  </table>
+</div>

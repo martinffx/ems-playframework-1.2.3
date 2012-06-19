@@ -1,0 +1,639 @@
+
+Time(t21):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d8
+  staff:             
+                    - adam
+  
+Time(t22):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d8
+  staff:             
+                    - adam
+  
+Time(t23):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+  
+Time(t24):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d12
+  staff:             
+                    - adam
+  
+Time(t25):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+  
+Time(t26):
+  Hours:            0
+  Minutes:          45
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+  
+Time(t27):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d12
+  staff:             
+                    - adam
+  
+Time(t28):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+  
+Time(t29):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+  
+Time(t30):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d3
+  staff:             
+                    - adam
+
+Time(t31):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d3
+  staff:             
+                    - adam
+
+Time(t32):
+  Hours:            1
+  Minutes:          45
+  Duty:
+                    - d3
+  staff:             
+                    - adam
+
+Time(t33):
+  Hours:            3
+  Minutes:          0
+  Duty:
+                    - d
+  staff:             
+                    - adam
+
+Time(t34):
+  Hours:            2
+  Minutes:          15
+  Duty:
+                    - d3
+  staff:             
+                    - adam
+
+Time(t35):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d3
+  staff:             
+                    - adam
+
+Time(t36):
+  Hours:            3
+  Minutes:          15
+  Duty:
+                    - d12
+  staff:             
+                    - adam
+
+Time(t37):
+  Hours:            0
+  Minutes:          30
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+
+Time(t38):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d12
+  staff:             
+                    - adam
+
+Time(t39):
+  Hours:            0
+  Minutes:          45
+  Duty:
+                    - d8
+  staff:             
+                    - adam
+
+Time(t40):
+  Hours:            2
+  Minutes:          15
+  Duty:
+                    - d8
+  staff:             
+                    - adam  
+  
+Time(t41):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d3
+  staff:             
+                    - dennis
+  
+Time(t42):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d4
+  staff:             
+                    - dennis
+  
+Time(t43):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d5
+  staff:             
+                    - dennis
+  
+Time(t44):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d3
+  staff:             
+                    - dennis
+  
+Time(t45):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d4
+  staff:             
+                    - dennis
+  
+Time(t46):
+  Hours:            0
+  Minutes:          45
+  Duty:
+                    - d5
+  staff:             
+                    - dennis
+  
+Time(t47):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d11
+  staff:             
+                    - dennis
+  
+Time(t48):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d15
+  staff:             
+                    - dennis
+  
+Time(t49):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d15
+  staff:             
+                    - dennis
+  
+Time(t50):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d19
+  staff:             
+                    - dennis
+
+Time(t51):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d19
+  staff:             
+                    - dennis
+
+Time(t52):
+  Hours:            1
+  Minutes:          45
+  Duty:
+                    - d19
+  staff:             
+                    - dennis
+
+Time(t53):
+  Hours:            3
+  Minutes:          0
+  Duty:
+                    - d8
+  staff:             
+                    - dennis
+
+Time(t54):
+  Hours:            2
+  Minutes:          15
+  Duty:
+                    - d19
+  staff:             
+                    - dennis
+
+Time(t55):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d11
+  staff:             
+                    - dennis
+
+Time(t56):
+  Hours:            3
+  Minutes:          15
+  Duty:
+                    - d11
+  staff:             
+                    - dennis
+
+Time(t57):
+  Hours:            0
+  Minutes:          30
+  Duty:
+                    - d15
+  staff:             
+                    - dennis
+
+Time(t58):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d11
+  staff:             
+                    - dennis
+
+Time(t59):
+  Hours:            0
+  Minutes:          45
+  Duty:
+                    - d8
+  staff:             
+                    - dennis
+
+Time(t60):
+  Hours:            2
+  Minutes:          15
+  Duty:
+                    - d8
+  staff:             
+                    - dennis
+ 
+Time(t61):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d8
+  staff:             
+                    - dennis
+  
+Time(t62):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d8
+  staff:             
+                    - dennis
+  
+Time(t63):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d15
+  staff:             
+                    - dennis
+  
+Time(t64):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d11
+  staff:             
+                    - dennis
+  
+Time(t65):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d15
+  staff:             
+                    - dennis
+  
+Time(t66):
+  Hours:            0
+  Minutes:          45
+  Duty:
+                    - d15
+  staff:             
+                    - dennis
+  
+Time(t67):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d11
+  staff:             
+                    - dennis
+  
+Time(t68):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d15
+  staff:             
+                    - dennis
+  
+Time(t69):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d15
+  staff:             
+                    - dennis
+  
+Time(t70):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d19
+  staff:             
+                    - dennis
+
+Time(t71):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d19
+  staff:             
+                    - dennis
+
+Time(t72):
+  Hours:            1
+  Minutes:          45
+  Duty:
+                    - d19
+  staff:             
+                    - dennis
+
+Time(t73):
+  Hours:            3
+  Minutes:          0
+  Duty:
+                    - d8
+  staff:             
+                    - dennis
+
+Time(t74):
+  Hours:            2
+  Minutes:          15
+  Duty:
+                    - d19
+  staff:             
+                    - dennis
+
+Time(t75):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d11
+  staff:             
+                    - dennis
+
+Time(t76):
+  Hours:            3
+  Minutes:          15
+  Duty:
+                    - d11
+  staff:             
+                    - dennis
+
+Time(t77):
+  Hours:            0
+  Minutes:          30
+  Duty:
+                    - d15
+  staff:             
+                    - dennis
+
+Time(t78):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d11
+  staff:             
+                    - dennis
+
+Time(t79):
+  Hours:            0
+  Minutes:          45
+  Duty:
+                    - d8
+  staff:             
+                    - dennis
+
+Time(t80):
+  Hours:            2
+  Minutes:          15
+  Duty:
+                    - d8
+  staff:             
+                    - dennis  
+Time(t21):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d8
+  staff:             
+                    - adam
+  
+Time(t22):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d8
+  staff:             
+                    - adam
+  
+Time(t23):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+  
+Time(t24):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d12
+  staff:             
+                    - adam
+  
+Time(t25):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+  
+Time(t26):
+  Hours:            0
+  Minutes:          45
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+  
+Time(t27):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d12
+  staff:             
+                    - adam
+  
+Time(t28):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+  
+Time(t29):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+  
+Time(t30):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d3
+  staff:             
+                    - adam
+
+Time(t31):
+  Hours:            1
+  Minutes:          0
+  Duty:
+                    - d3
+  staff:             
+                    - adam
+
+Time(t32):
+  Hours:            1
+  Minutes:          45
+  Duty:
+                    - d3
+  staff:             
+                    - adam
+
+Time(t33):
+  Hours:            3
+  Minutes:          0
+  Duty:
+                    - d
+  staff:             
+                    - adam
+
+Time(t34):
+  Hours:            2
+  Minutes:          15
+  Duty:
+                    - d3
+  staff:             
+                    - adam
+
+Time(t35):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d3
+  staff:             
+                    - adam
+
+Time(t36):
+  Hours:            3
+  Minutes:          15
+  Duty:
+                    - d12
+  staff:             
+                    - adam
+
+Time(t37):
+  Hours:            0
+  Minutes:          30
+  Duty:
+                    - d5
+  staff:             
+                    - adam
+
+Time(t38):
+  Hours:            1
+  Minutes:          15
+  Duty:
+                    - d12
+  staff:             
+                    - adam
+
+Time(t39):
+  Hours:            0
+  Minutes:          45
+  Duty:
+                    - d8
+  staff:             
+                    - adam
+
+Time(t40):
+  Hours:            2
+  Minutes:          15
+  Duty:
+                    - d8
+  staff:             
+                    - adam  
